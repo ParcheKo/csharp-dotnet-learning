@@ -1,8 +1,11 @@
-namespace Examples;
+namespace Examples.Variance;
 
-public class Variance
+public class Demo
 {
-    public void Examples()
+    // For more information check below pages
+    // https://en.wikipedia.org/wiki/Covariance_and_contravariance_(computer_science)
+    // https://en.wikipedia.org/wiki/Liskov_substitution_principle
+    public void Demos()
     {
         // 1. rule of substitutability
         var cat = new Cat();
@@ -46,27 +49,5 @@ public class Variance
         public void Mew()
         {
         }
-    }
-
-    interface ICovariant<out R>
-    {
-        // void AsTypeConstraint<T>() where T : R; // not possible 
-        R MethodReturnTypeDirectly();
-        void MethodArgumentTypeAsActionInputType(Action<R> callback);
-        Func<R> MethodReturnTypeAsFunctionReturnType();
-        // void MethodArgumentTypeDirectly(R arg); // not possible
-        // void MethodArgumentTypeAsFunctionReturnType(Func<R> action); // not possible
-        // Action<R> MethodReturnTypeAsActionInputType(); // not possible
-    }
-
-    interface IContravariant<in A>
-    {
-        void AsTypeConstraint<T>() where T : A;
-        // A MethodReturnTypeDirectly(); // not possible
-        // void MethodArgumentTypeAsActionInputType(Action<A> callback); // not possible
-        // Func<A> MethodReturnTypeAsFunctionReturnType(); // not possible
-        void MethodArgumentTypeDirectly(A arg);
-        void MethodArgumentTypeAsFunctionReturnType(Func<A> action);
-        Action<A> MethodReturnTypeAsActionInputType();
     }
 }
